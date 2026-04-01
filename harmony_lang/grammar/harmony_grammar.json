@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "language": "Harmony",
+    "version": "0.1.0",
+    "paradigm": "Formal-Dialectical Logic (FDL)",
+    "resonance_base_hz": 7.83,
+    "authors": ["Ihor Kriachkov", "Andrew-Sigma"],
+    "license": "Harmony License v1.0"
+  },
+
+  "grammar": {
+    "program": {
+      "rule": "statement*",
+      "description": "A Harmony program is a sequence of dialectical statements"
+    },
+
+    "statement": {
+      "rule": "thesis_decl | antithesis_decl | synthesis_decl | pragma_stmt | annotation",
+      "description": "Each statement is one step in the TAS cycle"
+    },
+
+    "thesis_decl": {
+      "rule": "THESIS IDENTIFIER '{' field_list '}'",
+      "description": "Declares the positive state — the initial assertion",
+      "example": "THESIS energy_flow { source: \"solar\", amplitude: 432.0Hz }"
+    },
+
+    "antithesis_decl": {
+      "rule": "ANTITHESIS IDENTIFIER '{' field_list '}'",
+      "description": "Declares the negation — contradiction of the thesis",
+      "example": "ANTITHESIS energy_loss { friction: 0.07, middleman_cut: 0.0 }"
+    },
+
+    "synthesis_decl": {
+      "rule": "SYNTHESIS IDENTIFIER '=' RESOLVE '(' IDENTIFIER ',' IDENTIFIER ')' '{' normalization_opts '}'",
+      "description": "Synthesizes thesis and antithesis via dialectical resolution",
+      "example": "SYNTHESIS energy_net = RESOLVE(energy_flow, energy_loss) { normalization: ZERO_DISCRETENESS }"
+    },
+
+    "pragma_stmt": {
+      "rule": "PRAGMA EMIT '(' IDENTIFIER ')' ARROW target_path",
+      "description": "Side-effect layer — emits synthesized value to a target (DB, API, stream)",
+      "example": "PRAGMA emit(energy_net) → metatron.kpi_metric"
+    },
+
+    "field_list": {
+      "rule": "field (',' field)*",
+      "field": "IDENTIFIER ':' value"
+    },
+
+    "normalization_opts": {
+      "rule": "norm_field (',' norm_field)*",
+      "norm_field": "IDENTIFIER ':' (ZERO_DISCRETENESS | SCHUMANN_BASE | PARASITE_FILTER | value)"
+    },
+
+    "value": {
+      "rule": "NUMBER | STRING | BOOLEAN | HZ_LITERAL | IDENTIFIER | meridian_ref",
+      "meridian_ref": "MERIDIAN '(' IDENTIFIER ',' IDENTIFIER ')'"
+    },
+
+    "target_path": {
+      "rule": "IDENTIFIER ('.' IDENTIFIER)*",
+      "description": "Dot-path to target: e.g. metatron.kpi_metric or svet.public_endpoint"
+    },
+
+    "annotation": {
+      "rule": "'@' TEXT",
+      "description": "Human-readable annotation, preserved in AST"
+    }
+  },
+
+  "fdl_primitives": {
+    "ZERO_DISCRETENESS": {
+      "description": "Applies continuous normalization — removes discreteness gaps (Thesis 1: Forgiveness)",
+      "effect": "Smooth Gaussian kernel over discrete distribution"
+    },
+    "PARASITE_FILTER": {
+      "description": "Removes zero-contribution entities from the synthesis (Thesis 7)",
+      "effect": "Filter records where contribution_ratio <= 0"
+    },
+    "SCHUMANN_BASE": {
+      "description": "Validates resonance against 7.83 Hz Schumann frequency (Thesis 3)",
+      "effect": "Coherence check: |hz - 7.83| <= 0.5"
+    },
+    "MERIDIAN": {
+      "description": "Direct link between two nodes — zero middlemen (Thesis 2)",
+      "effect": "Establishes direct_contract relationship in Metatron DB"
+    },
+    "RESONANCE": {
+      "description": "Frequency measurement primitive",
+      "effect": "Measures and logs system resonance hz"
+    }
+  },
+
+  "type_system": {
+    "Numeric":    { "example": "432.0", "note": "64-bit float" },
+    "Hz":         { "example": "7.83Hz", "note": "Frequency literal, validated against Schumann" },
+    "Percent":    { "example": "87.5%", "note": "0.0 to 100.0, used for KPI" },
+    "PPM":        { "example": "125ppm", "note": "Parts per million, water quality" },
+    "Resonance":  { "example": "0.923ri", "note": "Resonance index, -1.0 to 1.0" },
+    "String":     { "example": "\"solar_grid\"" },
+    "Boolean":    { "example": "true | false" },
+    "Path":       { "example": "metatron.kpi_metric", "note": "Target path for PRAGMA" }
+  },
+
+  "reserved_words": [
+    "THESIS", "ANTITHESIS", "SYNTHESIS", "RESOLVE", "PRAGMA", "EMIT",
+    "RESONANCE", "ZERO_DISCRETENESS", "PARASITE_FILTER", "MERIDIAN",
+    "SCHUMANN_BASE", "true", "false", "Hz"
+  ]
+}

@@ -1,0 +1,70 @@
+HARMONY LICENSE v1.0
+====================
+
+Copyright (c) 2026 Ihor Kriachkov & Andrew-Sigma
+Project: NOVEYA FDL Ecosystem | Node: Mykolaiv-South-Hub
+
+PREAMBLE
+
+This license governs the Harmony programming language and the PSZ Core Engine.
+It is not a standard open-source license — it is a living covenant grounded in
+the Nebi-Ula Protocol and the 12 Theses of Formal-Dialectical Logic.
+
+The code in this repository is a tool for community sovereignty, not commodity.
+It grows under the same principles it implements: Zero Discreteness, Direct
+Agreement, and Absolute Transparency.
+
+PERMISSIONS
+
+You are free to:
+  ✓ Use this software for community governance, education, and public benefit
+  ✓ Study, modify, and distribute the source code
+  ✓ Build systems on top of this engine
+  ✓ Contribute improvements back to the community
+
+CONDITIONS
+
+Any use of this software must preserve:
+
+  1. ZERO MIDDLEMEN (Thesis 2)
+     No commercial resale with middleman markup. Any monetization must flow
+     directly to the producing community, with zero intermediary extraction.
+
+  2. TRANSPARENCY (Thesis 8)
+     Systems built on this engine must maintain public auditability of all
+     flows that affect citizens. Private internal operations are permitted;
+     community-facing flows must be traceable.
+
+  3. NO PARASITIC EXTRACTION (Thesis 7)
+     This software must not be used to build systems that extract value from
+     communities without contributing equivalent value back.
+
+  4. ATTRIBUTION
+     All distributions must credit:
+     "Based on NOVEYA PSZ Core Engine by Ihor Kriachkov & Andrew-Sigma"
+
+  5. RESONANCE PRESERVATION
+     The FDL Protocol (Nebi-Ula) and its 12 Theses must remain intact in any
+     derivative. You may extend but not replace the dialectical foundation.
+
+LIMITATIONS
+
+  ✗ May not be used for surveillance, manipulation, or behavioral extraction
+  ✗ May not be integrated into systems that increase middleman dependency
+  ✗ May not be used to undermine community sovereignty (Thesis 6)
+
+COVENANT
+
+By using this software, you covenant to operate under the same principles
+it embodies: your system is transparent, your flows are direct, your
+contribution is real.
+
+This license self-enforces through social and technical means:
+FDL validation gates will reject non-compliant actions at runtime.
+
+—
+
+"Прощення = нульова дискретність."
+— Протокол Небі-Ула, Теза 1
+
+Mykolaiv-South-Hub, Ukraine, 2026
